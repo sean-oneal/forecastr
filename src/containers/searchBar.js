@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
+
   constructor(props) {
     super(props);
+
     this.state = {
-      input: ''
+      searchInput: ''
     };
+
+    this.onInputChange = this.onInputChange.bind(this);
   }
+
+  onInputChange(e) {
+    this.setState({
+      searchInput: e.target.value
+    });
+  }
+
+  onFormSubmit(e) {
+    e.preventDefault();
+  }
+
   render(){
     return (
-      <form className="input-group">
-        <input placeholder="Get the five-day weather forecast in your favorite cities" />
+      <form onSubmit={this.onFormSubmit} className="input-group">
+        <input
+          placeholder="Get the five-day weather forecast in your favorite cities"
+          className="form-control"
+          value={this.state.searchInput}
+          onChange={this.onInputChange}
+        />
         <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">Submit</button>
+          <button type="submit" className="btn btn-secondary">Search</button>
         </span>
       </form>
     );

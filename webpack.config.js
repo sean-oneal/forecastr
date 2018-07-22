@@ -1,3 +1,6 @@
+const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack'); //to access built-in plugins
+
 module.exports = {
   entry: ['./src/index.js'],
   output: {
@@ -16,6 +19,12 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+   new Dotenv({
+     safe: true,
+     silent: true
+   })
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },

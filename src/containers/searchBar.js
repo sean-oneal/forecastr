@@ -5,6 +5,9 @@ export default class SearchBar extends Component {
     return (
       <form className="input-group">
         <input placeholder="Search For A City...." />
+        <span className="input-group-btn">
+          <button type="submit" className="btn btn-secondary">Submit</button>
+        </span>
       </form>
       );
   }

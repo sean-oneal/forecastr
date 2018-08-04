@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class WeatherList extends Component {
-  renderWeather({ city }) {
-    const {name} = city;
+  renderWeather(cityData) {
+    const {name} = cityData.city;
+    const temps = cityData.list.map(weatherData => weatherData.main.temp);
+    console.log('temps!!! => ', temps);
     return (
       <tr key={name}>
         <td>{name}</td>
